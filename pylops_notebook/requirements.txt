@@ -1,0 +1,5 @@
+numpy
+scipy
+pyfftw
+pylops
+jupyter

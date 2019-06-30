@@ -1,0 +1,21 @@
+job: poststack
+
+data:
+  remotepath: Seismic/ST10010/Stacks
+  localpath: data/
+  filename: ST10010ZC11_PZ_PSDM_KIRCH_FAR_D.MIG_FIN.POST_STACK.3D.JS-017536.segy
+  account: dataplatformblvolve
+  container: pub
+  token: $YOUR_TOKEN
+
+prep:
+  itmin: 600
+  itmax: 800
+  nt_wav: 41
+  nfft: 512
+  jil: 4
+  jxl: 4
+  jt: 2
+
+proc:
+  niter: 10

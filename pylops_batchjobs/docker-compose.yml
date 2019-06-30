@@ -1,0 +1,12 @@
+version: '3'
+services:
+  poststack:
+    build: .
+    environment:
+      - JOB=poststack
+      - CONFIG=data/config.yml
+    volumes:
+      - ../data:/home/batchjobs/data
+
+volumes:
+  data:

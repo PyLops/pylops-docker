@@ -1,0 +1,15 @@
+version: '3'
+services:
+  notebook:
+    image: mrava87/pylops:conda_notebook
+    ports:
+      - "5000:8888"
+    environment:
+      - OMP_NUM_THREADS=0
+      - MKL_NUM_THREADS=0
+      - NUMBA_NUM_THREADS=4
+    volumes:
+      - ../notebooks:/home/jupyter/notebook
+
+volumes:
+  notebooks:
