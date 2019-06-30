@@ -1,7 +1,0 @@
-docker build -t pylops_batchjobs .
-docker run -it pylops_batchjobs_poststack /bin/bash (just to get hold of command line)
-docker run -m=4g -v $(pwd)/../data:/home/batchjobs/data -e CONFIG='data/config.yml' JOB='poststack' pylops_batchjobs
-
-or
-
-docker-compose up

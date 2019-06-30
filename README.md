@@ -5,7 +5,7 @@ Set of Docker containers for running PyLops in different scenarios
 
 * pylops_notebook: basic container to run a notebook (use pip for installing packages)
 * pylops_conda_notebook: basic container to run a notebook (use conda for installing packages)
-* pylops_batchjobs: container to run pylops jobs batch
+* pylops_batchjobs: container to run pylops jobs in batch
 
 ### Getting started
 
