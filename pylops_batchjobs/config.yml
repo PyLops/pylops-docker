@@ -6,7 +6,6 @@ data:
   filename: ST10010ZC11_PZ_PSDM_KIRCH_FAR_D.MIG_FIN.POST_STACK.3D.JS-017536.segy
   account: dataplatformblvolve
   container: pub
-  token: $YOUR_TOKEN
 
 prep:
   itmin: 600

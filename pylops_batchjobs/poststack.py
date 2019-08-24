@@ -20,20 +20,17 @@ def main(config):
         filename = setup['data']['filename']
         account = setup['data']['account']
         container = setup['data']['container']
-        token = setup['data']['token']
-
+		token = os.getenv('TOKEN')[1:-1]         
         itmin, itmax = setup['prep']['itmin'], setup['prep']['itmax'] #500, 900
         nt_wav = setup['prep']['nt_wav'] #41  # lenght of wavelet in samples
         nfft = setup['prep']['nfft'] #2 ** 9  # lenght of fft
         jil, jxl, jt = setup['prep']['jil'], setup['prep']['jxl'], setup['prep']['jt'] #2, 2, 2
-
         niter = setup['proc']['niter']
-
 
     ##############
     # Data loading
     ##############
-    print(os.system('echo Downloading data...') )
+    print('Downloading data...', flush=True)
     if not os.path.isfile(localpath+filename):
         command = ["az",
                    "storage", "blob", "download",
@@ -51,7 +48,7 @@ def main(config):
     ##############
     # Reading data
     ##############
-    print(os.system('echo Reading data...') )
+    print('Reading data...', flush=True)
     f = segyio.open(localpath+filename, ignore_geometry=True)
 
     traces = segyio.collect(f.trace)[:]
@@ -61,7 +58,7 @@ def main(config):
     ################
     # Interpret data
     ################
-    print(os.system('echo Interpreting data...') )
+    print('Interpreting data...', flush=True)
     t = f.samples
     il = f.attributes(segyio.TraceField.INLINE_3D)[:]
     xl = f.attributes(segyio.TraceField.CROSSLINE_3D)[:]
@@ -117,7 +114,7 @@ def main(config):
     ####################
     # Wavelet estimation
     ####################
-    print(os.system('echo Estimate wavelet...') )
+    print('Estimating wavelet...', flush=True)
     t_wav = np.arange(nt_wav) * (dt/1000)
     t_wav = np.concatenate((np.flipud(-t_wav[1:]), t_wav), axis=0)
 
@@ -139,10 +136,10 @@ def main(config):
     axs[1].set_title('Time')
     plt.savefig(localpath+'wavest.png')
 
-    ####################
-    #  Colored inversion
-    ####################
-    print(os.system('echo Colored inversion...') )
+    ###################
+    # Colored inversion
+    ###################
+    print('Colored inversion...', flush=True)
     d = np.swapaxes(d, -1, 0)
 
     m_colored, r_colored = \
@@ -181,5 +178,4 @@ def main(config):
 
 if __name__ == "__main__":
     config = sys.argv[1]
-    #config = 'data/config.yml'
     main(config)

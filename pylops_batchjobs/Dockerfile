@@ -43,6 +43,7 @@ COPY poststack.py /home/batchjobs
 # Set env variable
 ENV JOB=$JOB
 ENV CONFIG=$CONFIG
+ENV TOKEN=$TOKEN
 
 # Start script
 CMD python3 ${JOB}.py ${CONFIG}

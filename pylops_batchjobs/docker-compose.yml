@@ -5,6 +5,8 @@ services:
     environment:
       - JOB=poststack
       - CONFIG=data/config.yml
+      - TOKEN='?sv=2018-03-28&sr=c&sig=4a62Z4UgYPzV6DjSupwKzXTPNgebAnj9Swc1biwSVWk%3D&se=2019-06-12T15%3A48%3A37Z&sp=rl'
+      
     volumes:
       - ../data:/home/batchjobs/data
 
