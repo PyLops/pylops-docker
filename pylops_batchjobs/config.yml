@@ -12,9 +12,9 @@ prep:
   itmax: 800
   nt_wav: 41
   nfft: 512
-  jil: 4
-  jxl: 4
-  jt: 2
+  jil: 1
+  jxl: 1
+  jt: 1
 
 proc:
   niter: 10
