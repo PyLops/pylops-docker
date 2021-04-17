@@ -1,0 +1,14 @@
+version: "3"
+services:
+  notebook:
+    image: cdacosta/curvelops:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - OMP_NUM_THREADS=0
+      - MKL_NUM_THREADS=0
+    volumes:
+      - .:/home/jupyter/volume
+
+volumes:
+  notebooks:
